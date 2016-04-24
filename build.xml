@@ -90,7 +90,7 @@
             </copy>
         </target>
     	
-    	<target name="start" depends="install">
+    	<target name="start" depends="install, generate">
             <echo message="app start introsde.finalproject.rest.storageservices.App in ${build.dir}" />
             <java classname="introsde.finalproject.rest.storageservices.App" classpath="${build.dir}" fork="true">
                 <arg value="$JAVA_OPTS  -cp" />
