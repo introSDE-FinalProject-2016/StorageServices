@@ -161,8 +161,8 @@ public class PersonCollectionResource {
 	public Response getCount() {
 		try {
 			System.out.println("getCount: Getting count...");
-			PersonWrapper people = this.people.getPersonList();
-			int count = people.getPerson().size();
+			PersonWrapper personList = people.getPersonList();
+			int count = personList.getPerson().size();
 			return Response.ok(String.valueOf(count)).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
