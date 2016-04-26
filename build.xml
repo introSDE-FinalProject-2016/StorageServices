@@ -90,7 +90,7 @@
             </copy>
         </target>
     	
-    	<target name="start" depends="install, generate">
+    	<target name="start">
             <echo message="app start introsde.finalproject.rest.storageservices.App in ${build.dir}" />
             <java classname="introsde.finalproject.rest.storageservices.App" classpath="${build.dir}" fork="true">
                 <arg value="$JAVA_OPTS  -cp" />
@@ -104,7 +104,7 @@
             </java>
         </target>
         
-    	<target name="start.client">
+    	<target name="start.client" depends="install, generate">
             <echo message="ant start.client introsde.finalproject.rest.storageservices.client.PeopleClient in ${build.dir}" />
     		<echo message="**STEP 1**" />
     		<echo message="WSDL url: ${wsdl.location}" />
