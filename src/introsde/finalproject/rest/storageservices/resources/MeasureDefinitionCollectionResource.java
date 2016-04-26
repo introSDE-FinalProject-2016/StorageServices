@@ -24,7 +24,7 @@ import javax.xml.ws.Service;
 // will work only inside a Java EE application
 @LocalBean
 // will work only inside a Java EE application
-@Path("/measureTypes")
+@Path("/measureNames")
 public class MeasureDefinitionCollectionResource {
 
 	@Context
@@ -83,7 +83,7 @@ public class MeasureDefinitionCollectionResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getMeasureDefinition() {
 		try {
-			System.out.println("getMeasureDefinition(): Reading all names of the measures...");
+			System.out.println("getMeasureDefinition(): Reading names of all measures...");
 			MeasureDefinitionWrapper result = people
 					.getMeasureDefinitionNames();
 			return Response.ok(result).build();
