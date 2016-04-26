@@ -109,7 +109,7 @@ public class PersonCollectionResource {
 	@GET
 	@Path("person")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getPeopleList() {
+	public Response getPersonList() {
 		try {
 			System.out.println("getPersonList: Reading all people...");
 			return Response.ok(people.getPersonList()).build();
@@ -161,8 +161,8 @@ public class PersonCollectionResource {
 	public Response getCount() {
 		try {
 			System.out.println("getCount: Getting count...");
-			PersonWrapper personList = people.getPersonList();
-			int count = personList.getPerson().size();
+			PersonWrapper result = people.getPersonList();
+			int count = result.getPerson().size();
 			return Response.ok(String.valueOf(count)).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
