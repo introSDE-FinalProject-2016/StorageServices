@@ -112,7 +112,7 @@ public class PersonCollectionResource {
 	public Response getPersonList() {
 		try {
 			System.out.println("getPersonList: Reading all people...");
-			return Response.ok(people.getPersonList().getPerson()).build();
+			return Response.ok(people.getPersonList()).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
 					.entity(errorMessage(e)).build();
