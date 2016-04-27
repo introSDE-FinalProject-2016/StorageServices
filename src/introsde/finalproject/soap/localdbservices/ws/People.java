@@ -27,6 +27,18 @@ public interface People {
 
     /**
      * 
+     * @return
+     *     returns introsde.finalproject.soap.localdbservices.ws.PersonWrapper
+     */
+    @WebMethod
+    @WebResult(name = "people", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/")
+    @RequestWrapper(localName = "getPersonList", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonList")
+    @ResponseWrapper(localName = "getPersonListResponse", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonListResponse")
+    @Action(input = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonListRequest", output = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonListResponse")
+    public PersonWrapper getPersonList();
+
+    /**
+     * 
      * @param pid
      * @return
      *     returns introsde.finalproject.soap.localdbservices.ws.Person
@@ -123,18 +135,6 @@ public interface People {
         int pid,
         @WebParam(name = "measureName", targetNamespace = "")
         String measureName);
-
-    /**
-     * 
-     * @return
-     *     returns introsde.finalproject.soap.localdbservices.ws.PersonWrapper
-     */
-    @WebMethod
-    @WebResult(name = "people", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/")
-    @RequestWrapper(localName = "getPersonList", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonList")
-    @ResponseWrapper(localName = "getPersonListResponse", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonListResponse")
-    @Action(input = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonListRequest", output = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonListResponse")
-    public PersonWrapper getPersonList();
 
     /**
      * 
