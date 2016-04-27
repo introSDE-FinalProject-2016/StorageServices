@@ -112,10 +112,12 @@ public class PersonCollectionResource {
 	public Response getPersonList() {
 		try {
 			System.out.println("getPersonList: Reading all people...");
-			/*for(int i=0;i<people.getPersonList().getPerson().size();i++){
-				System.out.println(people.getPersonList().getPerson().get(i).toString());
-			}*/
-			return Response.ok(people.getPersonList()).build();
+			PersonWrapper result = people.getPersonList();
+			for(Person p : result.getPerson()){
+				System.out.println("Found Person by id = " + p.getPid() + " => "
+						+ p.getFirstname());
+			}
+			return Response.ok(result).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
 					.entity(errorMessage(e)).build();
