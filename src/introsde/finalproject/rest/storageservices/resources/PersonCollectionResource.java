@@ -115,7 +115,7 @@ public class PersonCollectionResource {
 			/*for(int i=0;i<people.getPersonList().getPerson().size();i++){
 				System.out.println(people.getPersonList().getPerson().get(i).toString());
 			}*/
-			return Response.ok(people.getPersonList().getPerson()).build();
+			return Response.ok(people.getPersonList()).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
 					.entity(errorMessage(e)).build();
