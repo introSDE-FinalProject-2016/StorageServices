@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -23,7 +21,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="pid" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="firstname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="lastname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="birthdate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="birthdate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="gender" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="currentHealth" minOccurs="0">
@@ -72,8 +70,7 @@ public class Person {
     protected int pid;
     protected String firstname;
     protected String lastname;
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar birthdate;
+    protected String birthdate;
     protected String email;
     protected String gender;
     protected Person.CurrentHealth currentHealth;
@@ -148,10 +145,10 @@ public class Person {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
@@ -160,10 +157,10 @@ public class Person {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setBirthdate(XMLGregorianCalendar value) {
+    public void setBirthdate(String value) {
         this.birthdate = value;
     }
 
