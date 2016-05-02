@@ -3,9 +3,7 @@ package introsde.finalproject.soap.localdbservices.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -21,7 +19,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="mid" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="name" type="{http://ws.localdbservices.soap.finalproject.introsde/}measureDefinition" minOccurs="0"/>
  *         &lt;element name="value" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="created" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="created" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -42,8 +40,7 @@ public class Measure {
     protected int mid;
     protected String name;
     protected String value;
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar created;
+    protected String created;
 
     /**
      * Recupera il valore della proprietà mid.
@@ -114,10 +111,10 @@ public class Measure {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getCreated() {
+    public String getCreated() {
         return created;
     }
 
@@ -126,10 +123,10 @@ public class Measure {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setCreated(XMLGregorianCalendar value) {
+    public void setCreated(String value) {
         this.created = value;
     }
 
