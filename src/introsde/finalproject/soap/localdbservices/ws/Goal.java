@@ -3,9 +3,7 @@ package introsde.finalproject.soap.localdbservices.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -21,8 +19,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="gid" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="type" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="value" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="startDateGoal" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
- *         &lt;element name="endDateGoal" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="startDateGoal" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="endDateGoal" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="achieved" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -46,10 +44,8 @@ public class Goal {
     protected int gid;
     protected String type;
     protected String value;
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar startDateGoal;
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar endDateGoal;
+    protected String startDateGoal;
+    protected String endDateGoal;
     protected Boolean achieved;
 
     /**
@@ -121,10 +117,10 @@ public class Goal {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getStartDateGoal() {
+    public String getStartDateGoal() {
         return startDateGoal;
     }
 
@@ -133,10 +129,10 @@ public class Goal {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setStartDateGoal(XMLGregorianCalendar value) {
+    public void setStartDateGoal(String value) {
         this.startDateGoal = value;
     }
 
@@ -145,10 +141,10 @@ public class Goal {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getEndDateGoal() {
+    public String getEndDateGoal() {
         return endDateGoal;
     }
 
@@ -157,10 +153,10 @@ public class Goal {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setEndDateGoal(XMLGregorianCalendar value) {
+    public void setEndDateGoal(String value) {
         this.endDateGoal = value;
     }
 
