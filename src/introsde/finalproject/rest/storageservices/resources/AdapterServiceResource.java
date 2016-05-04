@@ -37,6 +37,9 @@ public class AdapterServiceResource {
 	private String adapterServiceURL ="";
 	private String jsonResponse="";
 	
+	/**
+	 * initialize the connection with the Adapter Service (AS)
+	 */
 	public AdapterServiceResource(UriInfo uriInfo, Request request){
 		this.uriInfo = uriInfo;
 		this.request = request;
