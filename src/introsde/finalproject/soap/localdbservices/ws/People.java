@@ -27,33 +27,6 @@ public interface People {
 
     /**
      * 
-     * @return
-     *     returns introsde.finalproject.soap.localdbservices.ws.PersonWrapper
-     */
-    @WebMethod
-    @WebResult(name = "people", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/")
-    @RequestWrapper(localName = "getPersonList", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonList")
-    @ResponseWrapper(localName = "getPersonListResponse", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonListResponse")
-    @Action(input = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonListRequest", output = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonListResponse")
-    public PersonWrapper getPersonList();
-
-    /**
-     * 
-     * @param pid
-     * @return
-     *     returns introsde.finalproject.soap.localdbservices.ws.Person
-     */
-    @WebMethod
-    @WebResult(name = "person", targetNamespace = "")
-    @RequestWrapper(localName = "getPerson", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPerson")
-    @ResponseWrapper(localName = "getPersonResponse", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonResponse")
-    @Action(input = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonRequest", output = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonResponse")
-    public Person getPerson(
-        @WebParam(name = "pid", targetNamespace = "")
-        int pid);
-
-    /**
-     * 
      * @param measure
      * @param person
      * @return
@@ -69,6 +42,18 @@ public interface People {
         Person person,
         @WebParam(name = "measure", targetNamespace = "")
         List<Measure> measure);
+
+    /**
+     * 
+     * @return
+     *     returns introsde.finalproject.soap.localdbservices.ws.PersonWrapper
+     */
+    @WebMethod
+    @WebResult(name = "people", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/")
+    @RequestWrapper(localName = "getPersonList", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonList")
+    @ResponseWrapper(localName = "getPersonListResponse", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonListResponse")
+    @Action(input = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonListRequest", output = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonListResponse")
+    public PersonWrapper getPersonList();
 
     /**
      * 
@@ -148,6 +133,21 @@ public interface People {
     @ResponseWrapper(localName = "getGoalListResponse", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetGoalListResponse")
     @Action(input = "http://ws.localdbservices.soap.finalproject.introsde/People/getGoalListRequest", output = "http://ws.localdbservices.soap.finalproject.introsde/People/getGoalListResponse")
     public GoalWrapper getGoalList(
+        @WebParam(name = "pid", targetNamespace = "")
+        int pid);
+
+    /**
+     * 
+     * @param pid
+     * @return
+     *     returns introsde.finalproject.soap.localdbservices.ws.Person
+     */
+    @WebMethod
+    @WebResult(name = "person", targetNamespace = "")
+    @RequestWrapper(localName = "getPerson", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPerson")
+    @ResponseWrapper(localName = "getPersonResponse", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonResponse")
+    @Action(input = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonRequest", output = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonResponse")
+    public Person getPerson(
         @WebParam(name = "pid", targetNamespace = "")
         int pid);
 
