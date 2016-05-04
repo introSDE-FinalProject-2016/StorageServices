@@ -36,6 +36,10 @@ public class MeasureDefinitionResource {
 	private People people;
 	private QName qname;
 
+	
+	/**
+	 * initialize the connection with the Local Database Service (LDS)
+	 */
 	public MeasureDefinitionResource(UriInfo uriInfo, Request request){
 		this.uriInfo = uriInfo;
 		this.request = request;
@@ -88,7 +92,7 @@ public class MeasureDefinitionResource {
 	}
 	
 	/**
-	 * GET /storage-service/measureTypes 
+	 * GET /storage-service/measureDefinition 
 	 * This method calls a getMeasureDefinitionNames method in
 	 * Local Database Services Module
 	 * 
