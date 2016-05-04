@@ -48,6 +48,9 @@ public class PersonResource {
 	private QName qname;
 	
 	
+	/**
+	 * initialize the connection with the Local Database Service (LDS)
+	 */
 	public PersonResource(UriInfo uriInfo, Request request){
 		this.uriInfo = uriInfo;
 		this.request = request;
