@@ -37,7 +37,7 @@ public class CreateGoal {
     protected int pid;
 
     /**
-     * Recupera il valore della proprietà goal.
+     * Recupera il valore della proprieta goal.
      * 
      * @return
      *     possible object is
@@ -49,7 +49,7 @@ public class CreateGoal {
     }
 
     /**
-     * Imposta il valore della proprietà goal.
+     * Imposta il valore della proprieta goal.
      * 
      * @param value
      *     allowed object is
@@ -61,7 +61,7 @@ public class CreateGoal {
     }
 
     /**
-     * Recupera il valore della proprietà pid.
+     * Recupera il valore della proprieta pid.
      * 
      */
     public int getPid() {
@@ -69,7 +69,7 @@ public class CreateGoal {
     }
 
     /**
-     * Imposta il valore della proprietà pid.
+     * Imposta il valore della proprieta pid.
      * 
      */
     public void setPid(int value) {
