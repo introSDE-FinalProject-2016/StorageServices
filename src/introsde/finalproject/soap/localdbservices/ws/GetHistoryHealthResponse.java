@@ -34,7 +34,7 @@ public class GetHistoryHealthResponse {
     protected MeasureWrapper historyHealth;
 
     /**
-     * Recupera il valore della proprietà historyHealth.
+     * Recupera il valore della proprieta historyHealth.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class GetHistoryHealthResponse {
     }
 
     /**
-     * Imposta il valore della proprietà historyHealth.
+     * Imposta il valore della proprieta historyHealth.
      * 
      * @param value
      *     allowed object is
