@@ -36,7 +36,7 @@ public class GetPersonListResponse {
     protected PersonWrapper people;
 
     /**
-     * Recupera il valore della proprietà people.
+     * Recupera il valore della proprieta people.
      * 
      * @return
      *     possible object is
@@ -48,7 +48,7 @@ public class GetPersonListResponse {
     }
 
     /**
-     * Imposta il valore della proprietà people.
+     * Imposta il valore della proprieta people.
      * 
      * @param value
      *     allowed object is
