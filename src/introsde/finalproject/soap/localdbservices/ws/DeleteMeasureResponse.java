@@ -34,7 +34,7 @@ public class DeleteMeasureResponse {
     protected int responseMeasureCode;
 
     /**
-     * Recupera il valore della proprietà responseMeasureCode.
+     * Recupera il valore della proprieta responseMeasureCode.
      * 
      */
     public int getResponseMeasureCode() {
@@ -42,7 +42,7 @@ public class DeleteMeasureResponse {
     }
 
     /**
-     * Imposta il valore della proprietà responseMeasureCode.
+     * Imposta il valore della proprieta responseMeasureCode.
      * 
      */
     public void setResponseMeasureCode(int value) {
