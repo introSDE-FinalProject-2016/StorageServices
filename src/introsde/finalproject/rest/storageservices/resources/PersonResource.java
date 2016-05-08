@@ -537,6 +537,7 @@ public class PersonResource {
     	}
     }
     
+       
     /**
      * DELETE /storage-service/person/{idPerson}/measure/{idMeasure}
      * This methods calls a deleteMeasure method in Local Database Services Module
