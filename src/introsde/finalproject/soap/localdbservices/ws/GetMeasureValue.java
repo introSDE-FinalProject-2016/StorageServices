@@ -40,7 +40,7 @@ public class GetMeasureValue {
     protected int mid;
 
     /**
-     * Recupera il valore della proprietà pid.
+     * Recupera il valore della proprieta pid.
      * 
      */
     public int getPid() {
@@ -48,7 +48,7 @@ public class GetMeasureValue {
     }
 
     /**
-     * Imposta il valore della proprietà pid.
+     * Imposta il valore della proprieta pid.
      * 
      */
     public void setPid(int value) {
@@ -56,7 +56,7 @@ public class GetMeasureValue {
     }
 
     /**
-     * Recupera il valore della proprietà measureName.
+     * Recupera il valore della proprieta measureName.
      * 
      * @return
      *     possible object is
@@ -68,7 +68,7 @@ public class GetMeasureValue {
     }
 
     /**
-     * Imposta il valore della proprietà measureName.
+     * Imposta il valore della proprieta measureName.
      * 
      * @param value
      *     allowed object is
@@ -80,7 +80,7 @@ public class GetMeasureValue {
     }
 
     /**
-     * Recupera il valore della proprietà mid.
+     * Recupera il valore della proprieta mid.
      * 
      */
     public int getMid() {
@@ -88,7 +88,7 @@ public class GetMeasureValue {
     }
 
     /**
-     * Imposta il valore della proprietà mid.
+     * Imposta il valore della proprieta mid.
      * 
      */
     public void setMid(int value) {
