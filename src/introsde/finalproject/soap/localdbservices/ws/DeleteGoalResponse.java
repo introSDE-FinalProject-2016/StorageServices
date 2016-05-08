@@ -34,7 +34,7 @@ public class DeleteGoalResponse {
     protected int responseGoalCode;
 
     /**
-     * Recupera il valore della proprietà responseGoalCode.
+     * Recupera il valore della proprieta responseGoalCode.
      * 
      */
     public int getResponseGoalCode() {
@@ -42,7 +42,7 @@ public class DeleteGoalResponse {
     }
 
     /**
-     * Imposta il valore della proprietà responseGoalCode.
+     * Imposta il valore della proprieta responseGoalCode.
      * 
      */
     public void setResponseGoalCode(int value) {
