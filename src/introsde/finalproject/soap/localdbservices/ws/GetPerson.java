@@ -34,7 +34,7 @@ public class GetPerson {
     protected int pid;
 
     /**
-     * Recupera il valore della proprietà pid.
+     * Recupera il valore della proprieta pid.
      * 
      */
     public int getPid() {
@@ -42,7 +42,7 @@ public class GetPerson {
     }
 
     /**
-     * Imposta il valore della proprietà pid.
+     * Imposta il valore della proprieta pid.
      * 
      */
     public void setPid(int value) {
