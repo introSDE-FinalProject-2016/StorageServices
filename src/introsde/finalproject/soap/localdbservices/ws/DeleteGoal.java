@@ -34,7 +34,7 @@ public class DeleteGoal {
     protected int gid;
 
     /**
-     * Recupera il valore della proprietà gid.
+     * Recupera il valore della proprieta gid.
      * 
      */
     public int getGid() {
@@ -42,7 +42,7 @@ public class DeleteGoal {
     }
 
     /**
-     * Imposta il valore della proprietà gid.
+     * Imposta il valore della proprieta gid.
      * 
      */
     public void setGid(int value) {
