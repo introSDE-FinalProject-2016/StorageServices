@@ -77,7 +77,7 @@ public class Person {
     protected Person.Goals goals;
 
     /**
-     * Recupera il valore della proprietà pid.
+     * Recupera il valore della proprieta pid.
      * 
      */
     public int getPid() {
@@ -85,7 +85,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà pid.
+     * Imposta il valore della proprieta pid.
      * 
      */
     public void setPid(int value) {
@@ -93,7 +93,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà firstname.
+     * Recupera il valore della proprieta firstname.
      * 
      * @return
      *     possible object is
@@ -105,7 +105,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà firstname.
+     * Imposta il valore della proprieta firstname.
      * 
      * @param value
      *     allowed object is
@@ -117,7 +117,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà lastname.
+     * Recupera il valore della proprieta lastname.
      * 
      * @return
      *     possible object is
@@ -129,7 +129,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà lastname.
+     * Imposta il valore della proprieta lastname.
      * 
      * @param value
      *     allowed object is
@@ -141,7 +141,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà birthdate.
+     * Recupera il valore della proprieta birthdate.
      * 
      * @return
      *     possible object is
@@ -153,7 +153,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà birthdate.
+     * Imposta il valore della proprieta birthdate.
      * 
      * @param value
      *     allowed object is
@@ -165,7 +165,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà email.
+     * Recupera il valore della proprieta email.
      * 
      * @return
      *     possible object is
@@ -177,7 +177,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà email.
+     * Imposta il valore della proprieta email.
      * 
      * @param value
      *     allowed object is
@@ -189,7 +189,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà gender.
+     * Recupera il valore della proprieta gender.
      * 
      * @return
      *     possible object is
@@ -201,7 +201,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà gender.
+     * Imposta il valore della proprieta gender.
      * 
      * @param value
      *     allowed object is
@@ -213,7 +213,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà currentHealth.
+     * Recupera il valore della proprieta currentHealth.
      * 
      * @return
      *     possible object is
@@ -225,7 +225,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà currentHealth.
+     * Imposta il valore della proprieta currentHealth.
      * 
      * @param value
      *     allowed object is
@@ -237,7 +237,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà goals.
+     * Recupera il valore della proprieta goals.
      * 
      * @return
      *     possible object is
@@ -249,7 +249,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà goals.
+     * Imposta il valore della proprieta goals.
      * 
      * @param value
      *     allowed object is
