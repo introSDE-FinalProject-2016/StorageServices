@@ -34,7 +34,7 @@ public class GetMeasureResponse {
     protected MeasureWrapper measuresHealth;
 
     /**
-     * Recupera il valore della proprietà measuresHealth.
+     * Recupera il valore della proprieta measuresHealth.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class GetMeasureResponse {
     }
 
     /**
-     * Imposta il valore della proprietà measuresHealth.
+     * Imposta il valore della proprieta measuresHealth.
      * 
      * @param value
      *     allowed object is
