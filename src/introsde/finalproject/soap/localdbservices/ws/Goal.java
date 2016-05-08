@@ -49,7 +49,7 @@ public class Goal {
     protected Boolean achieved;
 
     /**
-     * Recupera il valore della proprietà gid.
+     * Recupera il valore della proprieta gid.
      * 
      */
     public int getGid() {
@@ -57,7 +57,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà gid.
+     * Imposta il valore della proprieta gid.
      * 
      */
     public void setGid(int value) {
@@ -65,7 +65,7 @@ public class Goal {
     }
 
     /**
-     * Recupera il valore della proprietà type.
+     * Recupera il valore della proprieta type.
      * 
      * @return
      *     possible object is
@@ -77,7 +77,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà type.
+     * Imposta il valore della proprieta type.
      * 
      * @param value
      *     allowed object is
@@ -89,7 +89,7 @@ public class Goal {
     }
 
     /**
-     * Recupera il valore della proprietà value.
+     * Recupera il valore della proprieta value.
      * 
      * @return
      *     possible object is
@@ -101,7 +101,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà value.
+     * Imposta il valore della proprieta value.
      * 
      * @param value
      *     allowed object is
@@ -113,7 +113,7 @@ public class Goal {
     }
 
     /**
-     * Recupera il valore della proprietà startDateGoal.
+     * Recupera il valore della proprieta startDateGoal.
      * 
      * @return
      *     possible object is
@@ -125,7 +125,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà startDateGoal.
+     * Imposta il valore della proprieta startDateGoal.
      * 
      * @param value
      *     allowed object is
@@ -137,7 +137,7 @@ public class Goal {
     }
 
     /**
-     * Recupera il valore della proprietà endDateGoal.
+     * Recupera il valore della proprieta endDateGoal.
      * 
      * @return
      *     possible object is
@@ -149,7 +149,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà endDateGoal.
+     * Imposta il valore della proprieta endDateGoal.
      * 
      * @param value
      *     allowed object is
@@ -161,7 +161,7 @@ public class Goal {
     }
 
     /**
-     * Recupera il valore della proprietà achieved.
+     * Recupera il valore della proprieta achieved.
      * 
      * @return
      *     possible object is
@@ -173,7 +173,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà achieved.
+     * Imposta il valore della proprieta achieved.
      * 
      * @param value
      *     allowed object is
