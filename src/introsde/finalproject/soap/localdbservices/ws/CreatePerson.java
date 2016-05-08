@@ -39,7 +39,7 @@ public class CreatePerson {
     protected List<Measure> measure;
 
     /**
-     * Recupera il valore della proprietà person.
+     * Recupera il valore della proprieta person.
      * 
      * @return
      *     possible object is
@@ -51,7 +51,7 @@ public class CreatePerson {
     }
 
     /**
-     * Imposta il valore della proprietà person.
+     * Imposta il valore della proprieta person.
      * 
      * @param value
      *     allowed object is
