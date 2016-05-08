@@ -34,7 +34,7 @@ public class GetPersonResponse {
     protected Person person;
 
     /**
-     * Recupera il valore della proprietà person.
+     * Recupera il valore della proprieta person.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class GetPersonResponse {
     }
 
     /**
-     * Imposta il valore della proprietà person.
+     * Imposta il valore della proprieta person.
      * 
      * @param value
      *     allowed object is
