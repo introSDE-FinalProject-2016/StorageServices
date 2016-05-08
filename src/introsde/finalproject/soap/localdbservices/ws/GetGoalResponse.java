@@ -36,7 +36,7 @@ public class GetGoalResponse {
     protected GoalWrapper goals;
 
     /**
-     * Recupera il valore della proprietà goals.
+     * Recupera il valore della proprieta goals.
      * 
      * @return
      *     possible object is
@@ -48,7 +48,7 @@ public class GetGoalResponse {
     }
 
     /**
-     * Imposta il valore della proprietà goals.
+     * Imposta il valore della proprieta goals.
      * 
      * @param value
      *     allowed object is
