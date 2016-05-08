@@ -36,7 +36,7 @@ public class GetMeasureDefinitionNamesResponse {
     protected MeasureDefinitionWrapper measureNames;
 
     /**
-     * Recupera il valore della proprietà measureNames.
+     * Recupera il valore della proprieta measureNames.
      * 
      * @return
      *     possible object is
@@ -48,7 +48,7 @@ public class GetMeasureDefinitionNamesResponse {
     }
 
     /**
-     * Imposta il valore della proprietà measureNames.
+     * Imposta il valore della proprieta measureNames.
      * 
      * @param value
      *     allowed object is
