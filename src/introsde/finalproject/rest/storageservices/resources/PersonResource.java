@@ -9,6 +9,7 @@ import introsde.finalproject.soap.localdbservices.ws.GoalWrapper;
 import introsde.finalproject.soap.localdbservices.ws.Measure;
 import introsde.finalproject.soap.localdbservices.ws.MeasureWrapper;
 import introsde.finalproject.soap.localdbservices.ws.People;
+import introsde.finalproject.soap.localdbservices.ws.PeopleService;
 import introsde.finalproject.soap.localdbservices.ws.Person;
 import introsde.finalproject.soap.localdbservices.ws.PersonWrapper;
 
@@ -141,6 +142,8 @@ public class PersonResource {
 		try {
 			System.out.println("getPersonList: Reading all people from Local DB Services Module in Storage Services...");
 			
+			PeopleService service = new PeopleService();
+		    People people = service.getPeopleImplPort();
 			PersonWrapper result = people.getPersonList();
 			return Response.ok(result).build();
 			/*if(result.getPerson().size() > 0){
