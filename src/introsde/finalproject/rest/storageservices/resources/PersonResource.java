@@ -149,8 +149,9 @@ public class PersonResource {
 			System.out.println("personList: " + result.getPerson().size());
 			String xmlBuild = "";
 
+			xmlBuild = "<people>";
 			for (int i = 0; i < result.getPerson().size(); i++) {
-				xmlBuild = "<person>";
+				xmlBuild += "<person>";
 				xmlBuild += "<pid>" + result.getPerson().get(i).getPid()
 						+ "</pid>";
 				xmlBuild += "<firstname>"
@@ -169,6 +170,8 @@ public class PersonResource {
 				xmlBuild += "</person>";
 			}
 
+			xmlBuild += "</people>";
+			
 			JSONObject xmlJSONObj = XML.toJSONObject(xmlBuild);
 			String jsonPrettyPrintString = xmlJSONObj.toString(4);
 			System.out.println(jsonPrettyPrintString);
