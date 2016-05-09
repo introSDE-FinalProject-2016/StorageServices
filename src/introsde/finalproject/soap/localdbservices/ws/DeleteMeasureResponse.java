@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per deleteMeasureResponse complex type.
+ * <p>Java class for deleteMeasureResponse complex type.
  * 
- * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="deleteMeasureResponse">
@@ -34,7 +34,7 @@ public class DeleteMeasureResponse {
     protected int responseMeasureCode;
 
     /**
-     * Recupera il valore della proprietà responseMeasureCode.
+     * Gets the value of the responseMeasureCode property.
      * 
      */
     public int getResponseMeasureCode() {
@@ -42,7 +42,7 @@ public class DeleteMeasureResponse {
     }
 
     /**
-     * Imposta il valore della proprietà responseMeasureCode.
+     * Sets the value of the responseMeasureCode property.
      * 
      */
     public void setResponseMeasureCode(int value) {

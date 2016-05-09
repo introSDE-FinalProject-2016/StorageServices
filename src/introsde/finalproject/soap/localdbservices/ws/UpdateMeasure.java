@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per updateMeasure complex type.
+ * <p>Java class for updateMeasure complex type.
  * 
- * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="updateMeasure">
@@ -34,7 +34,7 @@ public class UpdateMeasure {
     protected Measure measure;
 
     /**
-     * Recupera il valore della proprietà measure.
+     * Gets the value of the measure property.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class UpdateMeasure {
     }
 
     /**
-     * Imposta il valore della proprietà measure.
+     * Sets the value of the measure property.
      * 
      * @param value
      *     allowed object is

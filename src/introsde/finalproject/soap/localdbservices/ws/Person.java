@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per person complex type.
+ * <p>Java class for person complex type.
  * 
- * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="person">
@@ -77,7 +77,7 @@ public class Person {
     protected Person.Goals goals;
 
     /**
-     * Recupera il valore della proprietà pid.
+     * Gets the value of the pid property.
      * 
      */
     public int getPid() {
@@ -85,7 +85,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà pid.
+     * Sets the value of the pid property.
      * 
      */
     public void setPid(int value) {
@@ -93,7 +93,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà firstname.
+     * Gets the value of the firstname property.
      * 
      * @return
      *     possible object is
@@ -105,7 +105,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà firstname.
+     * Sets the value of the firstname property.
      * 
      * @param value
      *     allowed object is
@@ -117,7 +117,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà lastname.
+     * Gets the value of the lastname property.
      * 
      * @return
      *     possible object is
@@ -129,7 +129,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà lastname.
+     * Sets the value of the lastname property.
      * 
      * @param value
      *     allowed object is
@@ -141,7 +141,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà birthdate.
+     * Gets the value of the birthdate property.
      * 
      * @return
      *     possible object is
@@ -153,7 +153,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà birthdate.
+     * Sets the value of the birthdate property.
      * 
      * @param value
      *     allowed object is
@@ -165,7 +165,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà email.
+     * Gets the value of the email property.
      * 
      * @return
      *     possible object is
@@ -177,7 +177,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà email.
+     * Sets the value of the email property.
      * 
      * @param value
      *     allowed object is
@@ -189,7 +189,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà gender.
+     * Gets the value of the gender property.
      * 
      * @return
      *     possible object is
@@ -201,7 +201,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà gender.
+     * Sets the value of the gender property.
      * 
      * @param value
      *     allowed object is
@@ -213,7 +213,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà currentHealth.
+     * Gets the value of the currentHealth property.
      * 
      * @return
      *     possible object is
@@ -225,7 +225,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà currentHealth.
+     * Sets the value of the currentHealth property.
      * 
      * @param value
      *     allowed object is
@@ -237,7 +237,7 @@ public class Person {
     }
 
     /**
-     * Recupera il valore della proprietà goals.
+     * Gets the value of the goals property.
      * 
      * @return
      *     possible object is
@@ -249,7 +249,7 @@ public class Person {
     }
 
     /**
-     * Imposta il valore della proprietà goals.
+     * Sets the value of the goals property.
      * 
      * @param value
      *     allowed object is
@@ -262,9 +262,9 @@ public class Person {
 
 
     /**
-     * <p>Classe Java per anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>
@@ -321,9 +321,9 @@ public class Person {
 
 
     /**
-     * <p>Classe Java per anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType>

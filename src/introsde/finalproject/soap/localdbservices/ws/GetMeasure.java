@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per getMeasure complex type.
+ * <p>Java class for getMeasure complex type.
  * 
- * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="getMeasure">
@@ -37,7 +37,7 @@ public class GetMeasure {
     protected String measureName;
 
     /**
-     * Recupera il valore della proprietà pid.
+     * Gets the value of the pid property.
      * 
      */
     public int getPid() {
@@ -45,7 +45,7 @@ public class GetMeasure {
     }
 
     /**
-     * Imposta il valore della proprietà pid.
+     * Sets the value of the pid property.
      * 
      */
     public void setPid(int value) {
@@ -53,7 +53,7 @@ public class GetMeasure {
     }
 
     /**
-     * Recupera il valore della proprietà measureName.
+     * Gets the value of the measureName property.
      * 
      * @return
      *     possible object is
@@ -65,7 +65,7 @@ public class GetMeasure {
     }
 
     /**
-     * Imposta il valore della proprietà measureName.
+     * Sets the value of the measureName property.
      * 
      * @param value
      *     allowed object is

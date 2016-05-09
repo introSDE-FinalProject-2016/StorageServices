@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per createGoalResponse complex type.
+ * <p>Java class for createGoalResponse complex type.
  * 
- * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="createGoalResponse">
@@ -34,7 +34,7 @@ public class CreateGoalResponse {
     protected int gid;
 
     /**
-     * Recupera il valore della proprietà gid.
+     * Gets the value of the gid property.
      * 
      */
     public int getGid() {
@@ -42,7 +42,7 @@ public class CreateGoalResponse {
     }
 
     /**
-     * Imposta il valore della proprietà gid.
+     * Sets the value of the gid property.
      * 
      */
     public void setGid(int value) {

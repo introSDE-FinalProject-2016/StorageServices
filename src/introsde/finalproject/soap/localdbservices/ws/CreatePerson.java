@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per createPerson complex type.
+ * <p>Java class for createPerson complex type.
  * 
- * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="createPerson">
@@ -39,7 +39,7 @@ public class CreatePerson {
     protected List<Measure> measure;
 
     /**
-     * Recupera il valore della proprietà person.
+     * Gets the value of the person property.
      * 
      * @return
      *     possible object is
@@ -51,7 +51,7 @@ public class CreatePerson {
     }
 
     /**
-     * Imposta il valore della proprietà person.
+     * Sets the value of the person property.
      * 
      * @param value
      *     allowed object is

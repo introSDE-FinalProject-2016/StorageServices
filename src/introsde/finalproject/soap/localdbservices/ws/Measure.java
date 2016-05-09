@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per measure complex type.
+ * <p>Java class for measure complex type.
  * 
- * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="measure">
@@ -43,7 +43,7 @@ public class Measure {
     protected String created;
 
     /**
-     * Recupera il valore della proprietà mid.
+     * Gets the value of the mid property.
      * 
      */
     public int getMid() {
@@ -51,7 +51,7 @@ public class Measure {
     }
 
     /**
-     * Imposta il valore della proprietà mid.
+     * Sets the value of the mid property.
      * 
      */
     public void setMid(int value) {
@@ -59,7 +59,7 @@ public class Measure {
     }
 
     /**
-     * Recupera il valore della proprietà name.
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
@@ -71,7 +71,7 @@ public class Measure {
     }
 
     /**
-     * Imposta il valore della proprietà name.
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
@@ -83,7 +83,7 @@ public class Measure {
     }
 
     /**
-     * Recupera il valore della proprietà value.
+     * Gets the value of the value property.
      * 
      * @return
      *     possible object is
@@ -95,7 +95,7 @@ public class Measure {
     }
 
     /**
-     * Imposta il valore della proprietà value.
+     * Sets the value of the value property.
      * 
      * @param value
      *     allowed object is
@@ -107,7 +107,7 @@ public class Measure {
     }
 
     /**
-     * Recupera il valore della proprietà created.
+     * Gets the value of the created property.
      * 
      * @return
      *     possible object is
@@ -119,7 +119,7 @@ public class Measure {
     }
 
     /**
-     * Imposta il valore della proprietà created.
+     * Sets the value of the created property.
      * 
      * @param value
      *     allowed object is

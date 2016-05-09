@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per getGoalResponse complex type.
+ * <p>Java class for getGoalResponse complex type.
  * 
- * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="getGoalResponse">
@@ -34,7 +34,7 @@ public class GetGoalResponse {
     protected GoalWrapper goals;
 
     /**
-     * Recupera il valore della proprietà goals.
+     * Gets the value of the goals property.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class GetGoalResponse {
     }
 
     /**
-     * Imposta il valore della proprietà goals.
+     * Sets the value of the goals property.
      * 
      * @param value
      *     allowed object is

@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per goal complex type.
+ * <p>Java class for goal complex type.
  * 
- * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="goal">
@@ -49,7 +49,7 @@ public class Goal {
     protected Boolean achieved;
 
     /**
-     * Recupera il valore della proprietà gid.
+     * Gets the value of the gid property.
      * 
      */
     public int getGid() {
@@ -57,7 +57,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà gid.
+     * Sets the value of the gid property.
      * 
      */
     public void setGid(int value) {
@@ -65,7 +65,7 @@ public class Goal {
     }
 
     /**
-     * Recupera il valore della proprietà type.
+     * Gets the value of the type property.
      * 
      * @return
      *     possible object is
@@ -77,7 +77,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà type.
+     * Sets the value of the type property.
      * 
      * @param value
      *     allowed object is
@@ -89,7 +89,7 @@ public class Goal {
     }
 
     /**
-     * Recupera il valore della proprietà value.
+     * Gets the value of the value property.
      * 
      * @return
      *     possible object is
@@ -101,7 +101,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà value.
+     * Sets the value of the value property.
      * 
      * @param value
      *     allowed object is
@@ -113,7 +113,7 @@ public class Goal {
     }
 
     /**
-     * Recupera il valore della proprietà startDateGoal.
+     * Gets the value of the startDateGoal property.
      * 
      * @return
      *     possible object is
@@ -125,7 +125,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà startDateGoal.
+     * Sets the value of the startDateGoal property.
      * 
      * @param value
      *     allowed object is
@@ -137,7 +137,7 @@ public class Goal {
     }
 
     /**
-     * Recupera il valore della proprietà endDateGoal.
+     * Gets the value of the endDateGoal property.
      * 
      * @return
      *     possible object is
@@ -149,7 +149,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà endDateGoal.
+     * Sets the value of the endDateGoal property.
      * 
      * @param value
      *     allowed object is
@@ -161,7 +161,7 @@ public class Goal {
     }
 
     /**
-     * Recupera il valore della proprietà achieved.
+     * Gets the value of the achieved property.
      * 
      * @return
      *     possible object is
@@ -173,7 +173,7 @@ public class Goal {
     }
 
     /**
-     * Imposta il valore della proprietà achieved.
+     * Sets the value of the achieved property.
      * 
      * @param value
      *     allowed object is
