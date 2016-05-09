@@ -2,7 +2,6 @@ package introsde.finalproject.rest.storageservices.resources;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 import introsde.finalproject.rest.storageservices.util.UrlInfo;
 import introsde.finalproject.soap.localdbservices.ws.Goal;
@@ -10,7 +9,6 @@ import introsde.finalproject.soap.localdbservices.ws.GoalWrapper;
 import introsde.finalproject.soap.localdbservices.ws.Measure;
 import introsde.finalproject.soap.localdbservices.ws.MeasureWrapper;
 import introsde.finalproject.soap.localdbservices.ws.People;
-import introsde.finalproject.soap.localdbservices.ws.PeopleService;
 import introsde.finalproject.soap.localdbservices.ws.Person;
 import introsde.finalproject.soap.localdbservices.ws.PersonWrapper;
 
@@ -31,9 +29,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
-
-import org.json.JSONObject;
-import org.json.XML;
 
 @Stateless
 @LocalBean
