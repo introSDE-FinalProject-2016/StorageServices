@@ -2,6 +2,7 @@ package introsde.finalproject.rest.storageservices.resources;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 import introsde.finalproject.rest.storageservices.util.UrlInfo;
 import introsde.finalproject.soap.localdbservices.ws.Goal;
@@ -31,6 +32,9 @@ import javax.ws.rs.core.UriInfo;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
+import org.json.JSONObject;
+import org.json.XML;
+
 @Stateless
 @LocalBean
 public class PersonResource {
@@ -47,15 +51,14 @@ public class PersonResource {
 	private Service service;
 	private People people;
 	private QName qname;
-	
-	
+
 	/**
 	 * initialize the connection with the Local Database Service (LDS)
 	 */
-	public PersonResource(UriInfo uriInfo, Request request){
+	public PersonResource(UriInfo uriInfo, Request request) {
 		this.uriInfo = uriInfo;
 		this.request = request;
-		
+
 		this.urlInfo = new UrlInfo();
 		this.localDBServiceURL = urlInfo.getLocalDBURL();
 
@@ -79,9 +82,9 @@ public class PersonResource {
 
 		service = Service.create(url, qname);
 		people = service.getPort(People.class);
-		
+
 	}
-	
+
 	/**
 	 * This functions prints the message error into Local Database Services
 	 * Module
@@ -123,35 +126,68 @@ public class PersonResource {
 	 * @return
 	 */
 	private String errorURLMessage(URL url, Exception e) {
-		return "{ \n \"error\" : \"Error in URL " + url.getPath() + " not valid, due to the exception: "
-				+ e + "\"}";
+		return "{ \n \"error\" : \"Error in URL " + url.getPath()
+				+ " not valid, due to the exception: " + e + "\"}";
 	}
-	
-	
+
 	// ******************** PERSON ********************
 
 	/**
-	 * GET /storage-service/person 
-	 * This method calls a getPersonList method into Local Database 
-	 * Services Module
+	 * GET /storage-service/person This method calls a getPersonList method into
+	 * Local Database Services Module
+	 * 
 	 * @return
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getPersonList() {
 		try {
-			System.out.println("getPersonList: Reading all people from Local DB Services Module in Storage Services...");
-			 PersonWrapper personList = people.getPersonList();
-			return Response.ok(personList.getPerson().toString()).build();
+			System.out
+					.println("getPersonList: Reading all people from Local DB Services Module in Storage Services...");
+			PersonWrapper result = people.getPersonList();
+		
+			System.out.println("personList: " + result.getPerson().size());
+			String xmlBuild = "";
+
+			for (int i = 0; i < result.getPerson().size(); i++) {
+				xmlBuild = "<person>";
+				xmlBuild += "<pid>" + result.getPerson().get(i).getPid()
+						+ "</pid>";
+				xmlBuild += "<firstname>"
+						+ result.getPerson().get(i).getFirstname()
+						+ "</firstname>";
+				xmlBuild += "<lastname>"
+						+ result.getPerson().get(i).getLastname()
+						+ "</lastname>";
+				xmlBuild += "<birthdate>"
+						+ result.getPerson().get(i).getBirthdate()
+						+ "</birthdate>";
+				xmlBuild += "<email>" + result.getPerson().get(i).getEmail()
+						+ "</email>";
+				xmlBuild += "<gender>" + result.getPerson().get(i).getGender()
+						+ "</gender>";
+				xmlBuild += "<person>";
+			}
+
+			JSONObject xmlJSONObj = XML.toJSONObject(xmlBuild);
+			String jsonPrettyPrintString = xmlJSONObj.toString(4);
+			System.out.println(jsonPrettyPrintString);
+
+			if (result.getPerson().size() > 0) {
+				return Response.ok(jsonPrettyPrintString).build();
+			}
+
+			return Response.status(204).build();
+
 		} catch (Exception e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
 					.entity(errorMessage(e)).build();
 		}
 	}
-	
+
 	/**
-	 * Get /storage-service/person/{idPerson} This method calls the getPerson method into Local
-	 * Database Services Module
+	 * Get /storage-service/person/{idPerson} This method calls the getPerson
+	 * method into Local Database Services Module
 	 * 
 	 * @return
 	 */
@@ -160,8 +196,9 @@ public class PersonResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getPerson(@PathParam("pid") int idPerson) {
 		try {
-			System.out.println("getPerson: Reading person with " + idPerson + " from Local DB Services Module in Storage Services...");
-			
+			System.out.println("getPerson: Reading person with " + idPerson
+					+ " from Local DB Services Module in Storage Services...");
+
 			Person person = people.getPerson(idPerson);
 			if (person == null) {
 				return Response.status(Response.Status.NOT_FOUND)
@@ -179,9 +216,9 @@ public class PersonResource {
 	}
 
 	/**
-	 * POST /storage-service/person 
-	 * This method calls a createPerson method into Local Database 
-	 * Services Module
+	 * POST /storage-service/person This method calls a createPerson method into
+	 * Local Database Services Module
+	 * 
 	 * @param person
 	 * @return
 	 * @throws IOException
@@ -189,19 +226,20 @@ public class PersonResource {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response createPerson(Person person){
+	public Response createPerson(Person person) {
 		try {
 			System.out.println("createPerson: Creating a new person for "
-					+ person.getFirstname() + " " + person.getLastname() + " from Local DB Services Module in Storage Services...");
+					+ person.getFirstname() + " " + person.getLastname()
+					+ " from Local DB Services Module in Storage Services...");
 
 			int id = people.createPerson(person, null);
-			if (id == -1){
+			if (id == -1) {
 				return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-						.entity(errorMessage()).build();	
-			}else{
+						.entity(errorMessage()).build();
+			} else {
 				return Response.status(Response.Status.CREATED).entity(id)
 						.build();
-			}	
+			}
 		} catch (Exception e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
 					.entity(errorMessage(e)).build();
@@ -209,8 +247,9 @@ public class PersonResource {
 	}
 
 	/**
-	 * GET /storage-service/person/count
-	 * This function prints the number of people to get the total number of records
+	 * GET /storage-service/person/count This function prints the number of
+	 * people to get the total number of records
+	 * 
 	 * @return a string representing the number of people
 	 */
 	@GET
@@ -218,8 +257,9 @@ public class PersonResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getCount() {
 		try {
-			System.out.println("getCount: Getting count in Storage Services...");
-			
+			System.out
+					.println("getCount: Getting count in Storage Services...");
+
 			PersonWrapper result = people.getPersonList();
 			int count = result.getPerson().size();
 			return Response.ok(String.valueOf(count)).build();
@@ -228,11 +268,10 @@ public class PersonResource {
 					.entity(errorMessage(e)).build();
 		}
 	}
-	
-	
+
 	/**
-	 * PUT /storage-service/person/{idPerson} This method calls the updatePerson method into
-	 * Local Database Services Module
+	 * PUT /storage-service/person/{idPerson} This method calls the updatePerson
+	 * method into Local Database Services Module
 	 * 
 	 * @return
 	 */
@@ -242,8 +281,9 @@ public class PersonResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response updatePerson(@PathParam("pid") int idPerson, Person person) {
 		try {
-			System.out.println("updatePerson: Updating person with " + idPerson + " from Local DB Services Module in Storage Services...");
-			
+			System.out.println("updatePerson: Updating person with " + idPerson
+					+ " from Local DB Services Module in Storage Services...");
+
 			person.setPid(idPerson);
 			int result = people.updatePerson(person);
 			if (result >= 0) {
@@ -263,8 +303,8 @@ public class PersonResource {
 	}
 
 	/**
-	 * DELETE /storage-service/person/{idPerson} This method calls the deletePerson method into
-	 * Local Database Services Module
+	 * DELETE /storage-service/person/{idPerson} This method calls the
+	 * deletePerson method into Local Database Services Module
 	 * 
 	 * @return
 	 */
@@ -273,8 +313,9 @@ public class PersonResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response deletePerson(@PathParam("pid") int idPerson) {
 		try {
-			System.out.println("deletePerson: Deleting person with " + idPerson + " from Local DB Services Module in Storage Services...");
-			
+			System.out.println("deletePerson: Deleting person with " + idPerson
+					+ " from Local DB Services Module in Storage Services...");
+
 			int result = people.deletePerson(idPerson);
 			if (result == -1) {
 				return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
@@ -293,32 +334,35 @@ public class PersonResource {
 		}
 	}
 
-	 /**
-     * GET /storage-service/person/{idPerson}/historyHealth
-     * This method calls a getHistoryHealth method in Local Database Services Module 
-     * @return
-     */
-    @GET
-    @Path("{pid}/historyHealth")
-    @Produces( MediaType.APPLICATION_JSON )
-    public Response getHistoryHealth(@PathParam("pid") int idPerson) {
-    	try{
-    		System.out.println("getHistoryHealth: Reading historyHealth for a person with " + idPerson + " from Local DB Services Module in Storage Services...");
-    		
-    		MeasureWrapper result =  people.getHistoryHealth(idPerson);
-    		return Response.ok(result).build();
-    	}catch(Exception e){
-    		return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-    				.entity(errorMessage(e)).build();
-    	}
-    }
-	
-	
+	/**
+	 * GET /storage-service/person/{idPerson}/historyHealth This method calls a
+	 * getHistoryHealth method in Local Database Services Module
+	 * 
+	 * @return
+	 */
+	@GET
+	@Path("{pid}/historyHealth")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getHistoryHealth(@PathParam("pid") int idPerson) {
+		try {
+			System.out
+					.println("getHistoryHealth: Reading historyHealth for a person with "
+							+ idPerson
+							+ " from Local DB Services Module in Storage Services...");
+
+			MeasureWrapper result = people.getHistoryHealth(idPerson);
+			return Response.ok(result).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(errorMessage(e)).build();
+		}
+	}
+
 	// ******************** GOAL ********************
 
 	/**
-	 * GET /storage-service/person/{idPerson}/goal This method calls the getGoalList method into
-	 * Local Database Services Module
+	 * GET /storage-service/person/{idPerson}/goal This method calls the
+	 * getGoalList method into Local Database Services Module
 	 * 
 	 * @return
 	 */
@@ -327,8 +371,11 @@ public class PersonResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getGoalList(@PathParam("pid") int idPerson) {
 		try {
-			System.out.println("getGoalList: Reading all goals for a person with " + idPerson + " from Local DB Services Module in Storage Services...");
-			
+			System.out
+					.println("getGoalList: Reading all goals for a person with "
+							+ idPerson
+							+ " from Local DB Services Module in Storage Services...");
+
 			GoalWrapper result = people.getGoalList(idPerson);
 			return Response.ok(result).build();
 		} catch (Exception e) {
@@ -339,8 +386,8 @@ public class PersonResource {
 	}
 
 	/**
-	 * POST /storage-service/person/{idPerson}/goal This method calls the createGoal method into
-	 * Local Database Services Module
+	 * POST /storage-service/person/{idPerson}/goal This method calls the
+	 * createGoal method into Local Database Services Module
 	 * 
 	 * @param goal
 	 * @return
@@ -351,9 +398,10 @@ public class PersonResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response createGoal(@PathParam("pid") int idPerson, Goal goal) {
 		try {
-			System.out.println("createGoal: Creating a new goal for " + goal.getType()
-					+ ", for a person with " + idPerson + " from Local DB Services Module in Storage Services...");
-			
+			System.out.println("createGoal: Creating a new goal for "
+					+ goal.getType() + ", for a person with " + idPerson
+					+ " from Local DB Services Module in Storage Services...");
+
 			int id = people.createGoal(goal, idPerson);
 
 			if (id == -1) {
@@ -371,8 +419,8 @@ public class PersonResource {
 	}
 
 	/**
-	 * PUT /storage-service/person/{idPerson}/goal/{idGoal} This method calls the updateGoal
-	 * method into Local Database Services Module
+	 * PUT /storage-service/person/{idPerson}/goal/{idGoal} This method calls
+	 * the updateGoal method into Local Database Services Module
 	 * 
 	 * @param goal
 	 * @param idGoal
@@ -382,11 +430,14 @@ public class PersonResource {
 	@Path("{pid}/goal/{gid}")
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response updateGoal(@PathParam("pid") int idPerson, Goal goal, @PathParam("gid") int idGoal) {
+	public Response updateGoal(@PathParam("pid") int idPerson, Goal goal,
+			@PathParam("gid") int idGoal) {
 		try {
-			System.out.println("updateGoal: Updating goal with " + idGoal + ", for a person with " + idPerson + " from Local DB Services Module in Storage Services...");
+			System.out.println("updateGoal: Updating goal with " + idGoal
+					+ ", for a person with " + idPerson
+					+ " from Local DB Services Module in Storage Services...");
 			goal.setGid(idGoal);
-			
+
 			int result = people.updateGoal(goal);
 			if (result >= 0)
 				return Response.ok(result).build();
@@ -403,8 +454,8 @@ public class PersonResource {
 	}
 
 	/**
-	 * DELETE /storage-service/person/{idPerson}/goal/{idGoal} This method calls the deleteGoal
-	 * method into Local Database Services Module
+	 * DELETE /storage-service/person/{idPerson}/goal/{idGoal} This method calls
+	 * the deleteGoal method into Local Database Services Module
 	 * 
 	 * @param targetId
 	 * @return
@@ -412,10 +463,13 @@ public class PersonResource {
 	@DELETE
 	@Path("{pid}/goal/{gid}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response deleteGoal(@PathParam("pid") int idPerson, @PathParam("gid") int idGoal) {
+	public Response deleteGoal(@PathParam("pid") int idPerson,
+			@PathParam("gid") int idGoal) {
 		try {
-			System.out.println("deleteGoal: Deleting goal with " + idGoal + ", for a person with " + idPerson + " from Local DB Services Module in Storage Services...");
-			
+			System.out.println("deleteGoal: Deleting goal with " + idGoal
+					+ ", for a person with " + idPerson
+					+ " from Local DB Services Module in Storage Services...");
+
 			int result = people.deleteGoal(idGoal);
 			if (result == -1)
 				return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
@@ -430,135 +484,154 @@ public class PersonResource {
 					.entity(errorMessage(e)).build();
 		}
 	}
-	
+
 	/**
-	 * GET /storage-service/person/{idPerson}/goal/{measureName}
-	 * This method calls the getGoal
-	 * method into Local Database Services Module
+	 * GET /storage-service/person/{idPerson}/goal/{measureName} This method
+	 * calls the getGoal method into Local Database Services Module
+	 * 
 	 * @param measureName
 	 * @return
 	 */
 	@GET
-    @Path("{pid}/goal/{measureName}")
-    @Produces( MediaType.APPLICATION_JSON )
-    public Response getGoal(@PathParam("pid") int idPerson, @PathParam("measureName") String measureName) {
-    	try{
-    		System.out.println("getGoal: Reading goals for " + measureName + ", for a person with " + idPerson + " from Local DB Services Module in Storage Services...");
-    		
-    		GoalWrapper result = people.getGoal(idPerson, measureName);
-    		return Response.ok(result).build();
-    	}catch(Exception e){
-    		return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-    				.entity(errorMessage(e)).build();
-    	}
-    }
-	
+	@Path("{pid}/goal/{measureName}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getGoal(@PathParam("pid") int idPerson,
+			@PathParam("measureName") String measureName) {
+		try {
+			System.out.println("getGoal: Reading goals for " + measureName
+					+ ", for a person with " + idPerson
+					+ " from Local DB Services Module in Storage Services...");
+
+			GoalWrapper result = people.getGoal(idPerson, measureName);
+			return Response.ok(result).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(errorMessage(e)).build();
+		}
+	}
+
 	// ******************** MEASURE ********************
-	
-	 /**
-     * GET /storage-service/person/{idPerson}/measure/{measureName}
-     * This method calls a getMeasure method in Local Database Services Module
-     * @return
-     */
-    @GET
-    @Path("{pid}/measure/{measureName}")
-    @Produces( MediaType.APPLICATION_JSON )
-    public Response getMeasure(@PathParam("pid") int idPerson, @PathParam("measureName") String measureName) {
-    	try{
-    		System.out.println("getMeasure: Reading all measures for " + measureName + ", for a person with " + idPerson + " from Local DB Services Module in Storage Services...");
-    		
-    		MeasureWrapper result = people.getMeasure(idPerson, measureName);
-    		return Response.ok(result).build();
-    	}catch(Exception e){
-    		return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-    				.entity(errorMessage(e)).build();
-    	}
-    }
-	
+
 	/**
-     * POST /storage-service/person/{idPerson}/measure
-     * This method calls a createMeasure method in Local Database Services Module
-     * @param measure
-     * @return
-     */
-    @POST
+	 * GET /storage-service/person/{idPerson}/measure/{measureName} This method
+	 * calls a getMeasure method in Local Database Services Module
+	 * 
+	 * @return
+	 */
+	@GET
+	@Path("{pid}/measure/{measureName}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getMeasure(@PathParam("pid") int idPerson,
+			@PathParam("measureName") String measureName) {
+		try {
+			System.out.println("getMeasure: Reading all measures for "
+					+ measureName + ", for a person with " + idPerson
+					+ " from Local DB Services Module in Storage Services...");
+
+			MeasureWrapper result = people.getMeasure(idPerson, measureName);
+			return Response.ok(result).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(errorMessage(e)).build();
+		}
+	}
+
+	/**
+	 * POST /storage-service/person/{idPerson}/measure This method calls a
+	 * createMeasure method in Local Database Services Module
+	 * 
+	 * @param measure
+	 * @return
+	 */
+	@POST
 	@Path("{pid}/measure")
-    @Produces( MediaType.APPLICATION_JSON )
-    @Consumes({MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
-    public Response createMeasure(@PathParam("pid") int idPerson, Measure measure){
-    	try{
-    		System.out.println("createMeasure: Creating a new measure for " + measure.getName() + ", for a person with " + idPerson + " from Local DB Services Module in Storage Services...");
-    		
-    		int id = people.createMeasure(measure, idPerson);
-    		if(id == -1)
-    			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-    				.entity(errorMessage()).build();
-    		else
-    			return Response.status(Response.Status.CREATED).entity(id).build();
-    	}catch(Exception e){
-    		return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-    				.entity(errorMessage(e)).build();
-    	}
-    }
-    
-    /**
-     * PUT /storage-service/person/{idPerson}/measure/{idMeasure}
-     * This method calls a updateMeasure method in Local Database Services Module
-     * @param measure
-     * @param measureId
-     * @return
-     * @throws ParseException_Exception
-     */
-    @PUT
-    @Path("{pid}/measure/{mid}")
-    @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-    @Produces( MediaType.APPLICATION_JSON )
-	public Response updateMeasure(@PathParam("pid") int idPerson, Measure measure, @PathParam("mid") int idMeasure){
-    	try{
-    		System.out.println("updateMeasure: Updating a measure with " + idMeasure + ", for a person with " + idPerson + " from Local DB Services Module in Storage Services...");
-    		
-    		measure.setMid(idMeasure);
-    		int result = people.updateMeasure(measure);    
-    		if (result >= 0)
-    			return Response.ok(result).build();
-    		else if (result == -2)
-    			return Response.status(Response.Status.NOT_FOUND)
-    				.entity(notFoundMessage("Measure", idMeasure)).build();
-    		else
-    			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-    				.entity(errorMessage()).build();
-    	}catch(Exception e){
-    		return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-    				.entity(errorMessage(e)).build();
-    	}
-    }
-    
-       
-    /**
-     * DELETE /storage-service/person/{idPerson}/measure/{idMeasure}
-     * This methods calls a deleteMeasure method in Local Database Services Module
-     * @param measureId
-     * @return
-     */
-    @DELETE
-    @Path("{pid}/measure/{mid}")
-    @Produces( MediaType.APPLICATION_JSON )
-    public Response deleteMeasure(@PathParam("pid") int idPerson, @PathParam("mid") int idMeasure) {
-    	try{
-    		System.out.println("deleteMeasure: Deleting a measure with " + idMeasure + ", for a person with " + idPerson + " from Local DB Services Module in Storage Services...");
-    		
-    		int result = people.deleteMeasure(idMeasure);
-    		if (result == -1)
-    			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-    				.entity(errorMessage()).build();
-    		else if (result == -2)
-    			return Response.status(Response.Status.NOT_FOUND)
-    				.entity(notFoundMessage("Measure", idMeasure)).build();
-    		else
-    			return Response.status(Response.Status.NO_CONTENT).build();
-    	}catch(Exception e){
-    		return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-    				.entity(errorMessage(e)).build();
-    	}
-    }
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public Response createMeasure(@PathParam("pid") int idPerson,
+			Measure measure) {
+		try {
+			System.out.println("createMeasure: Creating a new measure for "
+					+ measure.getName() + ", for a person with " + idPerson
+					+ " from Local DB Services Module in Storage Services...");
+
+			int id = people.createMeasure(measure, idPerson);
+			if (id == -1)
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+						.entity(errorMessage()).build();
+			else
+				return Response.status(Response.Status.CREATED).entity(id)
+						.build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(errorMessage(e)).build();
+		}
+	}
+
+	/**
+	 * PUT /storage-service/person/{idPerson}/measure/{idMeasure} This method
+	 * calls a updateMeasure method in Local Database Services Module
+	 * 
+	 * @param measure
+	 * @param measureId
+	 * @return
+	 * @throws ParseException_Exception
+	 */
+	@PUT
+	@Path("{pid}/measure/{mid}")
+	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response updateMeasure(@PathParam("pid") int idPerson,
+			Measure measure, @PathParam("mid") int idMeasure) {
+		try {
+			System.out.println("updateMeasure: Updating a measure with "
+					+ idMeasure + ", for a person with " + idPerson
+					+ " from Local DB Services Module in Storage Services...");
+
+			measure.setMid(idMeasure);
+			int result = people.updateMeasure(measure);
+			if (result >= 0)
+				return Response.ok(result).build();
+			else if (result == -2)
+				return Response.status(Response.Status.NOT_FOUND)
+						.entity(notFoundMessage("Measure", idMeasure)).build();
+			else
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+						.entity(errorMessage()).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(errorMessage(e)).build();
+		}
+	}
+
+	/**
+	 * DELETE /storage-service/person/{idPerson}/measure/{idMeasure} This
+	 * methods calls a deleteMeasure method in Local Database Services Module
+	 * 
+	 * @param measureId
+	 * @return
+	 */
+	@DELETE
+	@Path("{pid}/measure/{mid}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response deleteMeasure(@PathParam("pid") int idPerson,
+			@PathParam("mid") int idMeasure) {
+		try {
+			System.out.println("deleteMeasure: Deleting a measure with "
+					+ idMeasure + ", for a person with " + idPerson
+					+ " from Local DB Services Module in Storage Services...");
+
+			int result = people.deleteMeasure(idMeasure);
+			if (result == -1)
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+						.entity(errorMessage()).build();
+			else if (result == -2)
+				return Response.status(Response.Status.NOT_FOUND)
+						.entity(notFoundMessage("Measure", idMeasure)).build();
+			else
+				return Response.status(Response.Status.NO_CONTENT).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(errorMessage(e)).build();
+		}
+	}
 }
