@@ -144,44 +144,7 @@ public class PersonResource {
 		try {
 			System.out
 					.println("getPersonList: Reading all people from Local DB Services Module in Storage Services...");
-			/*PersonWrapper result = people.getPersonList();
-		
-			System.out.println("personList: " + result.getPerson().size());
-			String xmlBuild = "";
-
-			xmlBuild = "<people>";
-			for (int i = 0; i < result.getPerson().size(); i++) {
-				xmlBuild += "<person>";
-				xmlBuild += "<pid>" + result.getPerson().get(i).getPid()
-						+ "</pid>";
-				xmlBuild += "<firstname>"
-						+ result.getPerson().get(i).getFirstname()
-						+ "</firstname>";
-				xmlBuild += "<lastname>"
-						+ result.getPerson().get(i).getLastname()
-						+ "</lastname>";
-				xmlBuild += "<birthdate>"
-						+ result.getPerson().get(i).getBirthdate()
-						+ "</birthdate>";
-				xmlBuild += "<email>" + result.getPerson().get(i).getEmail()
-						+ "</email>";
-				xmlBuild += "<gender>" + result.getPerson().get(i).getGender()
-						+ "</gender>";
-				xmlBuild += "</person>";
-			}
-
-			xmlBuild += "</people>";
 			
-			JSONObject xmlJSONObj = XML.toJSONObject(xmlBuild);
-			String jsonPrettyPrintString = xmlJSONObj.toString(4);
-			System.out.println(jsonPrettyPrintString);
-
-			if (result.getPerson().size() > 0) {
-				return Response.ok(jsonPrettyPrintString).build();
-			}
-
-			return Response.status(204).build();
-*/
 			return Response.ok(people.getPersonList()).build();
 			
 		} catch (Exception e) {
