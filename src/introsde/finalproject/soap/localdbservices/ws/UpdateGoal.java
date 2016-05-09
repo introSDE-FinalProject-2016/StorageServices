@@ -34,7 +34,7 @@ public class UpdateGoal {
     protected Goal goal;
 
     /**
-     * Recupera il valore della proprieta goal.
+     * Recupera il valore della proprietà goal.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class UpdateGoal {
     }
 
     /**
-     * Imposta il valore della proprieta goal.
+     * Imposta il valore della proprietà goal.
      * 
      * @param value
      *     allowed object is

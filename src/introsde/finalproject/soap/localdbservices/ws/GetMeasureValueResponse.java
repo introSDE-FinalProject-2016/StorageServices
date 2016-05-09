@@ -34,7 +34,7 @@ public class GetMeasureValueResponse {
     protected String value;
 
     /**
-     * Recupera il valore della proprieta value.
+     * Recupera il valore della proprietà value.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class GetMeasureValueResponse {
     }
 
     /**
-     * Imposta il valore della proprieta value.
+     * Imposta il valore della proprietà value.
      * 
      * @param value
      *     allowed object is

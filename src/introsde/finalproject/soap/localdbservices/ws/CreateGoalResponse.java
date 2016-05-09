@@ -34,7 +34,7 @@ public class CreateGoalResponse {
     protected int gid;
 
     /**
-     * Recupera il valore della proprieta gid.
+     * Recupera il valore della proprietà gid.
      * 
      */
     public int getGid() {
@@ -42,7 +42,7 @@ public class CreateGoalResponse {
     }
 
     /**
-     * Imposta il valore della proprieta gid.
+     * Imposta il valore della proprietà gid.
      * 
      */
     public void setGid(int value) {

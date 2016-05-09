@@ -24,21 +24,21 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _HealthProfileHistory_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "HealthProfile-history");
     private final static QName _UpdateGoal_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "updateGoal");
-    private final static QName _HealthProfileHistory_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "healthProfile-history");
+    private final static QName _People_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "People");
     private final static QName _CreatePerson_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "createPerson");
-    private final static QName _People_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "people");
     private final static QName _UpdateGoalResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "updateGoalResponse");
     private final static QName _DeletePerson_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "deletePerson");
     private final static QName _CreatePersonResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "createPersonResponse");
     private final static QName _GetPersonListResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "getPersonListResponse");
     private final static QName _GetGoalList_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "getGoalList");
-    private final static QName _MeasureNames_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "measureNames");
     private final static QName _UpdateMeasureResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "updateMeasureResponse");
     private final static QName _CreateGoal_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "createGoal");
     private final static QName _DeleteGoal_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "deleteGoal");
     private final static QName _GetPersonList_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "getPersonList");
     private final static QName _GetGoalListResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "getGoalListResponse");
+    private final static QName _Goals_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "Goals");
     private final static QName _GetMeasureValue_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "getMeasureValue");
     private final static QName _UpdatePerson_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "updatePerson");
     private final static QName _CreateGoalResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "createGoalResponse");
@@ -55,13 +55,13 @@ public class ObjectFactory {
     private final static QName _CreateMeasureResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "createMeasureResponse");
     private final static QName _GetMeasureValueResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "getMeasureValueResponse");
     private final static QName _DeleteMeasureResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "deleteMeasureResponse");
-    private final static QName _Goals_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "goals");
     private final static QName _DeletePersonResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "deletePersonResponse");
     private final static QName _GetHistoryHealthResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "getHistoryHealthResponse");
     private final static QName _GetMeasure_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "getMeasure");
     private final static QName _CreateMeasure_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "createMeasure");
     private final static QName _GetPersonResponse_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "getPersonResponse");
     private final static QName _UpdateMeasure_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "updateMeasure");
+    private final static QName _MeasureNames_QNAME = new QName("http://ws.localdbservices.soap.finalproject.introsde/", "MeasureNames");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: introsde.finalproject.soap.localdbservices.ws
@@ -175,6 +175,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link MeasureDefinitionWrapper }
+     * 
+     */
+    public MeasureDefinitionWrapper createMeasureDefinitionWrapper() {
+        return new MeasureDefinitionWrapper();
+    }
+
+    /**
      * Create an instance of {@link CreateMeasureResponse }
      * 
      */
@@ -196,14 +204,6 @@ public class ObjectFactory {
      */
     public DeleteMeasureResponse createDeleteMeasureResponse() {
         return new DeleteMeasureResponse();
-    }
-
-    /**
-     * Create an instance of {@link GoalWrapper }
-     * 
-     */
-    public GoalWrapper createGoalWrapper() {
-        return new GoalWrapper();
     }
 
     /**
@@ -247,11 +247,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link MeasureWrapper }
+     * Create an instance of {@link PersonWrapper }
      * 
      */
-    public MeasureWrapper createMeasureWrapper() {
-        return new MeasureWrapper();
+    public PersonWrapper createPersonWrapper() {
+        return new PersonWrapper();
     }
 
     /**
@@ -263,19 +263,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link MeasureWrapper }
+     * 
+     */
+    public MeasureWrapper createMeasureWrapper() {
+        return new MeasureWrapper();
+    }
+
+    /**
      * Create an instance of {@link UpdateGoal }
      * 
      */
     public UpdateGoal createUpdateGoal() {
         return new UpdateGoal();
-    }
-
-    /**
-     * Create an instance of {@link PersonWrapper }
-     * 
-     */
-    public PersonWrapper createPersonWrapper() {
-        return new PersonWrapper();
     }
 
     /**
@@ -343,19 +343,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link MeasureDefinitionWrapper }
-     * 
-     */
-    public MeasureDefinitionWrapper createMeasureDefinitionWrapper() {
-        return new MeasureDefinitionWrapper();
-    }
-
-    /**
      * Create an instance of {@link UpdateMeasureResponse }
      * 
      */
     public UpdateMeasureResponse createUpdateMeasureResponse() {
         return new UpdateMeasureResponse();
+    }
+
+    /**
+     * Create an instance of {@link GoalWrapper }
+     * 
+     */
+    public GoalWrapper createGoalWrapper() {
+        return new GoalWrapper();
     }
 
     /**
@@ -415,6 +415,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureWrapper }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.localdbservices.soap.finalproject.introsde/", name = "HealthProfile-history")
+    public JAXBElement<MeasureWrapper> createHealthProfileHistory(MeasureWrapper value) {
+        return new JAXBElement<MeasureWrapper>(_HealthProfileHistory_QNAME, MeasureWrapper.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link UpdateGoal }{@code >}}
      * 
      */
@@ -424,12 +433,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureWrapper }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link PersonWrapper }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://ws.localdbservices.soap.finalproject.introsde/", name = "healthProfile-history")
-    public JAXBElement<MeasureWrapper> createHealthProfileHistory(MeasureWrapper value) {
-        return new JAXBElement<MeasureWrapper>(_HealthProfileHistory_QNAME, MeasureWrapper.class, null, value);
+    @XmlElementDecl(namespace = "http://ws.localdbservices.soap.finalproject.introsde/", name = "People")
+    public JAXBElement<PersonWrapper> createPeople(PersonWrapper value) {
+        return new JAXBElement<PersonWrapper>(_People_QNAME, PersonWrapper.class, null, value);
     }
 
     /**
@@ -439,15 +448,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.localdbservices.soap.finalproject.introsde/", name = "createPerson")
     public JAXBElement<CreatePerson> createCreatePerson(CreatePerson value) {
         return new JAXBElement<CreatePerson>(_CreatePerson_QNAME, CreatePerson.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PersonWrapper }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.localdbservices.soap.finalproject.introsde/", name = "people")
-    public JAXBElement<PersonWrapper> createPeople(PersonWrapper value) {
-        return new JAXBElement<PersonWrapper>(_People_QNAME, PersonWrapper.class, null, value);
     }
 
     /**
@@ -496,15 +496,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureDefinitionWrapper }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.localdbservices.soap.finalproject.introsde/", name = "measureNames")
-    public JAXBElement<MeasureDefinitionWrapper> createMeasureNames(MeasureDefinitionWrapper value) {
-        return new JAXBElement<MeasureDefinitionWrapper>(_MeasureNames_QNAME, MeasureDefinitionWrapper.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link UpdateMeasureResponse }{@code >}}
      * 
      */
@@ -547,6 +538,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.localdbservices.soap.finalproject.introsde/", name = "getGoalListResponse")
     public JAXBElement<GetGoalListResponse> createGetGoalListResponse(GetGoalListResponse value) {
         return new JAXBElement<GetGoalListResponse>(_GetGoalListResponse_QNAME, GetGoalListResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GoalWrapper }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.localdbservices.soap.finalproject.introsde/", name = "Goals")
+    public JAXBElement<GoalWrapper> createGoals(GoalWrapper value) {
+        return new JAXBElement<GoalWrapper>(_Goals_QNAME, GoalWrapper.class, null, value);
     }
 
     /**
@@ -694,15 +694,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GoalWrapper }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.localdbservices.soap.finalproject.introsde/", name = "goals")
-    public JAXBElement<GoalWrapper> createGoals(GoalWrapper value) {
-        return new JAXBElement<GoalWrapper>(_Goals_QNAME, GoalWrapper.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DeletePersonResponse }{@code >}}
      * 
      */
@@ -754,6 +745,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.localdbservices.soap.finalproject.introsde/", name = "updateMeasure")
     public JAXBElement<UpdateMeasure> createUpdateMeasure(UpdateMeasure value) {
         return new JAXBElement<UpdateMeasure>(_UpdateMeasure_QNAME, UpdateMeasure.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link MeasureDefinitionWrapper }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.localdbservices.soap.finalproject.introsde/", name = "MeasureNames")
+    public JAXBElement<MeasureDefinitionWrapper> createMeasureNames(MeasureDefinitionWrapper value) {
+        return new JAXBElement<MeasureDefinitionWrapper>(_MeasureNames_QNAME, MeasureDefinitionWrapper.class, null, value);
     }
 
 }

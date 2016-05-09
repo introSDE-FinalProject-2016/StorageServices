@@ -43,7 +43,7 @@ public class Measure {
     protected String created;
 
     /**
-     * Recupera il valore della proprieta mid.
+     * Recupera il valore della proprietà mid.
      * 
      */
     public int getMid() {
@@ -51,7 +51,7 @@ public class Measure {
     }
 
     /**
-     * Imposta il valore della proprieta mid.
+     * Imposta il valore della proprietà mid.
      * 
      */
     public void setMid(int value) {
@@ -59,7 +59,7 @@ public class Measure {
     }
 
     /**
-     * Recupera il valore della proprieta name.
+     * Recupera il valore della proprietà name.
      * 
      * @return
      *     possible object is
@@ -71,7 +71,7 @@ public class Measure {
     }
 
     /**
-     * Imposta il valore della proprieta name.
+     * Imposta il valore della proprietà name.
      * 
      * @param value
      *     allowed object is
@@ -83,7 +83,7 @@ public class Measure {
     }
 
     /**
-     * Recupera il valore della proprieta value.
+     * Recupera il valore della proprietà value.
      * 
      * @return
      *     possible object is
@@ -95,7 +95,7 @@ public class Measure {
     }
 
     /**
-     * Imposta il valore della proprieta value.
+     * Imposta il valore della proprietà value.
      * 
      * @param value
      *     allowed object is
@@ -107,7 +107,7 @@ public class Measure {
     }
 
     /**
-     * Recupera il valore della proprieta created.
+     * Recupera il valore della proprietà created.
      * 
      * @return
      *     possible object is
@@ -119,7 +119,7 @@ public class Measure {
     }
 
     /**
-     * Imposta il valore della proprieta created.
+     * Imposta il valore della proprietà created.
      * 
      * @param value
      *     allowed object is

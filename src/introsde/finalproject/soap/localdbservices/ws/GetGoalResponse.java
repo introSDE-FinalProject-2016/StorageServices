@@ -3,7 +3,6 @@ package introsde.finalproject.soap.localdbservices.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -17,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://ws.localdbservices.soap.finalproject.introsde/}goals" minOccurs="0"/>
+ *         &lt;element name="goals" type="{http://ws.localdbservices.soap.finalproject.introsde/}goalWrapper" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -32,11 +31,10 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetGoalResponse {
 
-    @XmlElement(namespace = "http://ws.localdbservices.soap.finalproject.introsde/")
     protected GoalWrapper goals;
 
     /**
-     * Recupera il valore della proprieta goals.
+     * Recupera il valore della proprietà goals.
      * 
      * @return
      *     possible object is
@@ -48,7 +46,7 @@ public class GetGoalResponse {
     }
 
     /**
-     * Imposta il valore della proprieta goals.
+     * Imposta il valore della proprietà goals.
      * 
      * @param value
      *     allowed object is

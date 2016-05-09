@@ -3,7 +3,6 @@ package introsde.finalproject.soap.localdbservices.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -17,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://ws.localdbservices.soap.finalproject.introsde/}people" minOccurs="0"/>
+ *         &lt;element name="people" type="{http://ws.localdbservices.soap.finalproject.introsde/}personWrapper" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -32,11 +31,10 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetPersonListResponse {
 
-    @XmlElement(namespace = "http://ws.localdbservices.soap.finalproject.introsde/")
     protected PersonWrapper people;
 
     /**
-     * Recupera il valore della proprieta people.
+     * Recupera il valore della proprietà people.
      * 
      * @return
      *     possible object is
@@ -48,7 +46,7 @@ public class GetPersonListResponse {
     }
 
     /**
-     * Imposta il valore della proprieta people.
+     * Imposta il valore della proprietà people.
      * 
      * @param value
      *     allowed object is

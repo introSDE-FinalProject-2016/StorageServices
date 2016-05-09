@@ -34,7 +34,7 @@ public class GetHistoryHealth {
     protected int pid;
 
     /**
-     * Recupera il valore della proprieta pid.
+     * Recupera il valore della proprietà pid.
      * 
      */
     public int getPid() {
@@ -42,7 +42,7 @@ public class GetHistoryHealth {
     }
 
     /**
-     * Imposta il valore della proprieta pid.
+     * Imposta il valore della proprietà pid.
      * 
      */
     public void setPid(int value) {

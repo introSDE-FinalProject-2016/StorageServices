@@ -31,7 +31,7 @@ public interface People {
      *     returns introsde.finalproject.soap.localdbservices.ws.PersonWrapper
      */
     @WebMethod
-    @WebResult(name = "people", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/")
+    @WebResult(name = "people", targetNamespace = "")
     @RequestWrapper(localName = "getPersonList", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonList")
     @ResponseWrapper(localName = "getPersonListResponse", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetPersonListResponse")
     @Action(input = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonListRequest", output = "http://ws.localdbservices.soap.finalproject.introsde/People/getPersonListResponse")
@@ -126,7 +126,7 @@ public interface People {
      *     returns introsde.finalproject.soap.localdbservices.ws.GoalWrapper
      */
     @WebMethod
-    @WebResult(name = "goals", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/")
+    @WebResult(name = "goals", targetNamespace = "")
     @RequestWrapper(localName = "getGoal", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetGoal")
     @ResponseWrapper(localName = "getGoalResponse", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetGoalResponse")
     @Action(input = "http://ws.localdbservices.soap.finalproject.introsde/People/getGoalRequest", output = "http://ws.localdbservices.soap.finalproject.introsde/People/getGoalResponse")
@@ -143,7 +143,7 @@ public interface People {
      *     returns introsde.finalproject.soap.localdbservices.ws.GoalWrapper
      */
     @WebMethod
-    @WebResult(name = "goals", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/")
+    @WebResult(name = "goals", targetNamespace = "")
     @RequestWrapper(localName = "getGoalList", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetGoalList")
     @ResponseWrapper(localName = "getGoalListResponse", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetGoalListResponse")
     @Action(input = "http://ws.localdbservices.soap.finalproject.introsde/People/getGoalListRequest", output = "http://ws.localdbservices.soap.finalproject.introsde/People/getGoalListResponse")
@@ -289,7 +289,7 @@ public interface People {
      *     returns introsde.finalproject.soap.localdbservices.ws.MeasureDefinitionWrapper
      */
     @WebMethod
-    @WebResult(name = "measureNames", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/")
+    @WebResult(name = "measureNames", targetNamespace = "")
     @RequestWrapper(localName = "getMeasureDefinitionNames", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetMeasureDefinitionNames")
     @ResponseWrapper(localName = "getMeasureDefinitionNamesResponse", targetNamespace = "http://ws.localdbservices.soap.finalproject.introsde/", className = "introsde.finalproject.soap.localdbservices.ws.GetMeasureDefinitionNamesResponse")
     @Action(input = "http://ws.localdbservices.soap.finalproject.introsde/People/getMeasureDefinitionNamesRequest", output = "http://ws.localdbservices.soap.finalproject.introsde/People/getMeasureDefinitionNamesResponse")

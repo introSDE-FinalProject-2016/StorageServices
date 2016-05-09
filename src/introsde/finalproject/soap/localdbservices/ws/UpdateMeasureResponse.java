@@ -34,7 +34,7 @@ public class UpdateMeasureResponse {
     protected int mid;
 
     /**
-     * Recupera il valore della proprieta mid.
+     * Recupera il valore della proprietà mid.
      * 
      */
     public int getMid() {
@@ -42,7 +42,7 @@ public class UpdateMeasureResponse {
     }
 
     /**
-     * Imposta il valore della proprieta mid.
+     * Imposta il valore della proprietà mid.
      * 
      */
     public void setMid(int value) {

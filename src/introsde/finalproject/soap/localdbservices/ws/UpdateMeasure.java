@@ -34,7 +34,7 @@ public class UpdateMeasure {
     protected Measure measure;
 
     /**
-     * Recupera il valore della proprieta measure.
+     * Recupera il valore della proprietà measure.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class UpdateMeasure {
     }
 
     /**
-     * Imposta il valore della proprieta measure.
+     * Imposta il valore della proprietà measure.
      * 
      * @param value
      *     allowed object is

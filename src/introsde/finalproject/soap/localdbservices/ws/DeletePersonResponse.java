@@ -34,7 +34,7 @@ public class DeletePersonResponse {
     protected int responsePersonCode;
 
     /**
-     * Recupera il valore della proprieta responsePersonCode.
+     * Recupera il valore della proprietà responsePersonCode.
      * 
      */
     public int getResponsePersonCode() {
@@ -42,7 +42,7 @@ public class DeletePersonResponse {
     }
 
     /**
-     * Imposta il valore della proprieta responsePersonCode.
+     * Imposta il valore della proprietà responsePersonCode.
      * 
      */
     public void setResponsePersonCode(int value) {

@@ -37,7 +37,7 @@ public class GetGoal {
     protected String measureName;
 
     /**
-     * Recupera il valore della proprieta pid.
+     * Recupera il valore della proprietà pid.
      * 
      */
     public int getPid() {
@@ -45,7 +45,7 @@ public class GetGoal {
     }
 
     /**
-     * Imposta il valore della proprieta pid.
+     * Imposta il valore della proprietà pid.
      * 
      */
     public void setPid(int value) {
@@ -53,7 +53,7 @@ public class GetGoal {
     }
 
     /**
-     * Recupera il valore della proprieta measureName.
+     * Recupera il valore della proprietà measureName.
      * 
      * @return
      *     possible object is
@@ -65,7 +65,7 @@ public class GetGoal {
     }
 
     /**
-     * Imposta il valore della proprieta measureName.
+     * Imposta il valore della proprietà measureName.
      * 
      * @param value
      *     allowed object is
