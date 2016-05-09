@@ -166,7 +166,7 @@ public class PersonResource {
 						+ "</email>";
 				xmlBuild += "<gender>" + result.getPerson().get(i).getGender()
 						+ "</gender>";
-				xmlBuild += "<person>";
+				xmlBuild += "</person>";
 			}
 
 			JSONObject xmlJSONObj = XML.toJSONObject(xmlBuild);
