@@ -142,7 +142,7 @@ public class PersonResource {
 		try {
 			System.out.println("getPersonList: Reading all people from Local DB Services Module in Storage Services...");
 			 PersonWrapper personList = people.getPersonList();
-			return Response.ok(personList.toString()).build();
+			return Response.ok(personList.getPerson().toString()).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
 					.entity(errorMessage(e)).build();
