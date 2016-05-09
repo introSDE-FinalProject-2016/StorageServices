@@ -141,7 +141,7 @@ public class PersonResource {
 	public Response getPersonList() {
 		try {
 			System.out.println("getPersonList: Reading all people from Local DB Services Module in Storage Services...");
-			return Response.ok(people.getPersonList()).build();
+			return Response.ok(people.getPersonList().getPerson()).build();
 		} catch (Exception e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
 					.entity(errorMessage(e)).build();
