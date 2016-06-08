@@ -1,6 +1,6 @@
 # StorageServices
 
-The Storage Service is a RestFul Web Service. This layer gets and switches the requests to [LocalDatabase Services](https://github.com/introSDE-FinalProject-2016/LocalDatabaseServices) (comunicates with database) or [Adapter Services](https://github.com/introSDE-FinalProject-2016/AdapterServices) (comunicates with the external API) modules. Finally, sends the responses to the next layer in the application.
+The Storage Service is a RestFul Web Service. This module gets and switches the requests to [LocalDatabase Services](https://github.com/introSDE-FinalProject-2016/LocalDatabaseServices) (comunicates with database) or [Adapter Services](https://github.com/introSDE-FinalProject-2016/AdapterServices) (comunicates with the external API) modules. Finally, sends the responses to the next layer in the application.
 
 
 [API Documentation](http://docs.storageservices.apiary.io/#)  
