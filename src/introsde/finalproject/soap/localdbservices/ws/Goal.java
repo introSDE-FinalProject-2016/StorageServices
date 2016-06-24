@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="startDateGoal" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="endDateGoal" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="achieved" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="condition" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,7 +38,8 @@ import javax.xml.bind.annotation.XmlType;
     "value",
     "startDateGoal",
     "endDateGoal",
-    "achieved"
+    "achieved",
+    "condition"
 })
 public class Goal {
 
@@ -47,6 +49,7 @@ public class Goal {
     protected String startDateGoal;
     protected String endDateGoal;
     protected Boolean achieved;
+    protected String condition;
 
     /**
      * Gets the value of the gid property.
@@ -182,6 +185,30 @@ public class Goal {
      */
     public void setAchieved(Boolean value) {
         this.achieved = value;
+    }
+
+    /**
+     * Gets the value of the condition property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCondition() {
+        return condition;
+    }
+
+    /**
+     * Sets the value of the condition property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCondition(String value) {
+        this.condition = value;
     }
 
 }
