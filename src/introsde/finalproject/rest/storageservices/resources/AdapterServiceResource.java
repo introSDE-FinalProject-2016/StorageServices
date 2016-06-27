@@ -49,8 +49,8 @@ public class AdapterServiceResource {
 	}
 	
 	/**
-	 * Request #1: GET /storage-service/adapter/picture 
-	 * Returns the list of the pictures from Adapter Services Module 
+	 * Request #1: GET /storage-service/adapter/pictureBad 
+	 * Returns a given picture from Adapter Services Module 
 	 * @return
 	 */
 	@GET
@@ -62,7 +62,9 @@ public class AdapterServiceResource {
 			System.out.println("getPictureBad(): Reading a given picture from Adapter Services Module in Storage Services...");
 			
 			String path = "/instagram-pictures";
+			
 			String result_request = "ERROR";
+			Response output = null;
 			
 			HttpClient client = new DefaultHttpClient();
 			HttpGet request = new HttpGet(adapterServiceURL + path);
@@ -103,12 +105,11 @@ public class AdapterServiceResource {
 						jsonResponse += "\"id\": \"" + idTarget + "\",";
 						jsonResponse += "\"thumbUrl\": \"" + thumbUrl + "\",";
 						jsonResponse += "\"likes\": \"" + likes + "\"";
-						
+						jsonResponse += "}" + "}";
+						output = Response.ok(jsonResponse).build(); 
 					}
 				}
-				
-				jsonResponse += "}" + "}";
-				return Response.ok(jsonResponse).build();
+				return output;
 				
 			} else {
 				jsonResponse += "{\"status\": \"" + result_request + "\"," 
@@ -126,7 +127,84 @@ public class AdapterServiceResource {
 	
 	
 	/**
-	 * Request #2: GET /storage-service/adapter/quote 
+	 * Request #2: GET /storage-service/adapter/pictureGood 
+	 * Returns a given picture from Adapter Services Module 
+	 * @return
+	 */
+	@GET
+	@Path("pictureGood")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getPictureGood(){
+		try {
+			
+			System.out.println("getPictureGood(): Reading a given picture from Adapter Services Module in Storage Services...");
+			
+			String path = "/instagram-pictures";
+			
+			String result_request = "ERROR";
+			Response output = null;
+			
+			HttpClient client = new DefaultHttpClient();
+			HttpGet request = new HttpGet(adapterServiceURL + path);
+			HttpResponse response = client.execute(request);
+			
+			BufferedReader rd = new BufferedReader(new InputStreamReader(
+					response.getEntity().getContent()));
+
+			StringBuffer result = new StringBuffer();
+			String line = "";
+			while ((line = rd.readLine()) != null) {
+				result.append(line);
+			}
+
+			JSONObject obj = new JSONObject(result.toString());
+
+			if (response.getStatusLine().getStatusCode() == 200 && obj.getString("status") != "ERROR") {
+				
+				JSONArray arr = obj.getJSONArray("results");
+				
+				for(int i=0; i< arr.length(); i++){
+					
+					String idTarget = arr.getJSONObject(i).getString("id");
+					
+					// 0 if x is equal to y; -1 if this string is lexicographically less than the string argument; and +1 if this string is lexicographically greater than the string argument.
+					int count = idTarget.compareTo("1267348014586113907_2304108306"); 
+					if(count == 0){
+						
+						result_request = "OK";
+						
+						jsonResponse += "{\"status\": \"" + result_request + "\",";
+						
+						jsonResponse += "\"picture\": {";
+						 
+						String thumbUrl = arr.getJSONObject(i).getString("standard_resolution_url");
+						int likes = arr.getJSONObject(i).getInt("likes");
+						
+						jsonResponse += "\"id\": \"" + idTarget + "\",";
+						jsonResponse += "\"thumbUrl\": \"" + thumbUrl + "\",";
+						jsonResponse += "\"likes\": \"" + likes + "\"";
+						jsonResponse += "}" + "}";
+						output = Response.ok(jsonResponse).build(); 
+					}
+				}
+				return output;
+				
+			} else {
+				jsonResponse += "{\"status\": \"" + result_request + "\"," 
+						+ "\"error\": \"" + response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase() 
+						+ "\"}";
+
+				return Response.status(404).entity(jsonResponse).build();
+			}
+		} catch (Exception e) {
+			System.out.println("Error Instagram API external");
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(errorMessage(e)).build();
+		}
+	}
+	
+	/**
+	 * Request #3: GET /storage-service/adapter/quote 
 	 * Returns one motivational quote from Adapter Service Module 
 	 * 
 	 * @return
