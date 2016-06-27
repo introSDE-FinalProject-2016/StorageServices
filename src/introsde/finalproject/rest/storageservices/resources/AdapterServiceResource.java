@@ -56,13 +56,13 @@ public class AdapterServiceResource {
 	@GET
 	@Path("picture")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getPicture(){
+	public Response getPictureBad(){
 		try {
 			
-			System.out.println("getPicture(): Reading a picture from Adapter Services Module in Storage Services...");
+			System.out.println("getPictureBad(): Reading a given picture from Adapter Services Module in Storage Services...");
 			
 			String path = "/instagram-pictures";
-			String result_request_1 = "ERROR";
+			String result_request = "ERROR";
 			
 			HttpClient client = new DefaultHttpClient();
 			HttpGet request = new HttpGet(adapterServiceURL + path);
@@ -77,45 +77,48 @@ public class AdapterServiceResource {
 				result.append(line);
 			}
 
-			JSONObject o = new JSONObject(result.toString());
+			JSONObject obj = new JSONObject(result.toString());
 
-			if (response.getStatusLine().getStatusCode() == 200 && o.getString("status") != "ERROR") {
+			if (response.getStatusLine().getStatusCode() == 200 && obj.getString("status") != "ERROR") {
 				
-				result_request_1 = "OK";
+				JSONArray arr = obj.getJSONArray("results");
 				
-				//jsonResponse += "{\"status\": \"OK\",";
-				jsonResponse += "{\"status\": \"" + result_request_1 + "\",";
+				for(int i=0; i< arr.length(); i++){
+					
+					String idTarget = arr.getJSONObject(i).getString("id");
+					
+					// 0 if x is equal to y; -1 if this string is lexicographically less than the string argument; and +1 if this string is lexicographically greater than the string argument.
+					int count = idTarget.compareTo("1267348550660108167_2304108306"); 
+					if(count == 0){
+						
+						result_request = "OK";
+						
+						jsonResponse += "{\"status\": \"" + result_request + "\",";
+						
+						jsonResponse += "\"picture\": {";
+						 
+						String thumbUrl = arr.getJSONObject(i).getString("standard_resolution_url");
+						int likes = arr.getJSONObject(i).getInt("likes");
+						
+						jsonResponse += "\"id\": \"" + idTarget + "\",";
+						jsonResponse += "\"thumbUrl\": \"" + thumbUrl + "\",";
+						jsonResponse += "\"likes\": \"" + likes + "\"";
+						
+					}else{
+						
+						jsonResponse += "{\"status\": \"" + result_request + "\",";
+						jsonResponse += "\"picture\": { null";
+					}
+				}
 				
-				JSONArray arr = o.getJSONArray("results");
-				//System.out.println(arr.toString(4));
-				
-				int random_hashtag = 0 + (int) (Math.random() * (arr.length() - 1));
-				//System.out.println("random_hashtag: " + random_hashtag);
-				
-				jsonResponse += "\"picture\": {";
-				
-				String random_tag = arr.getJSONObject(random_hashtag).getString("random_tag");
-				String thumbUrl = arr.getJSONObject(random_hashtag).getString("thumbUrl");
-				
-				jsonResponse += "\"id\": \"" + random_hashtag + "\",";
-				jsonResponse += "\"random_tag\": \"" + random_tag + "\",";
-				jsonResponse += "\"thumbUrl\": \"" + thumbUrl + "\"";
-				
-				jsonResponse += "}\n" + "}";
-				
-				//templateRequest(1, "GET", adapterServiceURL + path , response, result_request_1, mediaType);
-				//System.out.println(prettyJSONPrint(jsonResponse));
-				
+				jsonResponse += "}" + "}";
 				return Response.ok(jsonResponse).build();
 				
 			} else {
-				jsonResponse += "{\"status\": \"" + result_request_1 + "\"," 
+				jsonResponse += "{\"status\": \"" + result_request + "\"," 
 						+ "\"error\": \"" + response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase() 
 						+ "\"}";
 
-				//templateRequest(1, "GET", adapterServiceURL + path , response, result_request_1, mediaType);
-				//System.out.println(prettyJSONPrint(jsonResponse));
-				
 				return Response.status(404).entity(jsonResponse).build();
 			}
 		} catch (Exception e) {
