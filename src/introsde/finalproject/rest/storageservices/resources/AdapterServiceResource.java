@@ -203,6 +203,7 @@ public class AdapterServiceResource {
 		}
 	}
 	
+	
 	/**
 	 * Request #3: GET /storage-service/adapter/quote 
 	 * Returns one motivational quote from Adapter Service Module 
