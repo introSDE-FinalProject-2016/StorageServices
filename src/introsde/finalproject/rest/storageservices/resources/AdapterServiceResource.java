@@ -257,18 +257,12 @@ public class AdapterServiceResource {
 
 				jsonResponse += "}\n" + "}";
 
-				//templateRequest(2, "GET", adapterServiceURL + path , response, result_request_2, mediaType);
-				//System.out.println(prettyJSONPrint(jsonResponse));
-				
 				return Response.ok(jsonResponse).build();
 
 			} else {
 				jsonResponse += "{\"status\": \"" + result_request_2 + "\"," + 
 								  "\"error\": \"" + response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase() 
 								  + "\"}";
-				
-				//templateRequest(2, "GET", adapterServiceURL + path , response, result_request_2, mediaType);
-				//System.out.println(prettyJSONPrint(jsonResponse));
 				
 				return Response.status(404).entity(jsonResponse).build();
 			}
@@ -280,8 +274,6 @@ public class AdapterServiceResource {
 		}
 	}
 	
-	
-	
 	/**
 	 * This function returns a message about to types of the exception found
 	 * @param e
@@ -290,35 +282,6 @@ public class AdapterServiceResource {
 	private String errorMessage(Exception e) {
 		return "{ \n \"error\" : \"Error in Adapter Services, due to the exception: "
 				+ e + "\"}";
-	}
-	
-	
-	/**
-	 * This method prints the template for each request
-	 * @param numberRequest of the request
-	 * @param method of the request
-	 * @param path of the request
-	 * @param response of the request
-	 * @param result of the request
-	 * @param mediaType of the request
-	 */
-	public void templateRequest(int numberRequest, String method, String path, HttpResponse response, String result, String mediaType){
-		mediaType = mediaType.toUpperCase();
-		System.out.println("======================================================================================================");
-		System.out.println("Request #" + numberRequest + ": "+ method + " " + path + " " + "Accept: " + mediaType + " " + "Content-Type: " + mediaType);
-		System.out.println("=> Result: " + result);
-		System.out.println("=> HTTP Status: " + response.getStatusLine().getStatusCode());
-		System.out.println();
-	}
-	
-	/**
-	 * This method prints pretty format for JSON
-	 * @param jsonString
-	 * @return
-	 */
-	public String prettyJSONPrint(String jsonString){
-		JSONObject json = new JSONObject(jsonString); 
-		return json.toString(4);	
 	}
 	
 }
