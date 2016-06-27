@@ -54,7 +54,7 @@ public class AdapterServiceResource {
 	 * @return
 	 */
 	@GET
-	@Path("picture")
+	@Path("pictureBad")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getPictureBad(){
 		try {
