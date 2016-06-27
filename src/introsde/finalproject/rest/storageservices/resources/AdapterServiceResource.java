@@ -104,10 +104,6 @@ public class AdapterServiceResource {
 						jsonResponse += "\"thumbUrl\": \"" + thumbUrl + "\",";
 						jsonResponse += "\"likes\": \"" + likes + "\"";
 						
-					}else{
-						
-						jsonResponse += "{\"status\": \"" + result_request + "\",";
-						jsonResponse += "\"picture\": { null";
 					}
 				}
 				
